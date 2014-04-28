@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LavaCoins</string>
+    <string name="dummy_button">START</string>
+    <string name="dummy_content">LAVACOINS</string>
+	<string name="hello">LavaCoinsActivity!</string>
+    <string name="warning">Robots are rising</string>    
+</resources>
