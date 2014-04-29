@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -95,11 +96,27 @@ SurfaceHolder.Callback {
 		return true;
 	}
 
+	// the fps to be displayed
+	private String avgFps;
+	public void setAvgFps(String avgFps) {
+		this.avgFps = avgFps;
+	}
+
 	public void render(Canvas canvas) {
 		canvas.drawColor(Color.BLACK);
 		droid.draw(canvas);
+		// display fps
+		displayFps(canvas, avgFps);
 	}
 
+	private void displayFps(Canvas canvas, String fps) {
+		if (canvas != null && fps != null) {
+			Paint paint = new Paint();
+			paint.setARGB(255, 255, 255, 255);
+			paint.setTextSize(50);
+			canvas.drawText(fps, this.getWidth() - 200, 70, paint);
+		}
+	}
 	/**
 	 * This is the game update method. It iterates through all the objects
 	 * and calls their update method if they have one or calls specific
